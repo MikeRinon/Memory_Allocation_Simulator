@@ -137,19 +137,19 @@ def main():
     holes = [100, 500, 200, 300, 600]
     events = [("alloc", "P1", 212), ("alloc", "P2", 417), ("alloc", "P3", 112),
               ("alloc", "P4", 426), ("free", "P2"), ("alloc", "P5", 200)]
-    print("##### TEST 1: variable partitions (holes are split) #####")
+    print("TEST 1: variable partitions (holes are split)")
     print("Initial holes:", holes)
     for name in STRATEGIES:
         run(holes, events, name, split=True)
 
-    print("\n\n##### TEST 2: fixed partitions (no splitting) #####")
+    print("\n\nTEST 2: fixed partitions (no splitting)")
     for name in STRATEGIES:
         run(holes, events, name, split=False)
 
     # Part 1.3: scenario where Best-Fit is worse than First-Fit 
     holes2 = [300, 200]
     events2 = [("alloc", "A", 100), ("alloc", "B", 150), ("alloc", "C", 200)]
-    print("\n\n##### TEST 3: custom scenario (Best-Fit worse than First-Fit) #####")
+    print("\n\nTEST 3: custom scenario (Best-Fit worse than First-Fit)")
     print("Initial holes:", holes2)
     for name in ["First-Fit", "Best-Fit"]:
         run(holes2, events2, name, split=True)
